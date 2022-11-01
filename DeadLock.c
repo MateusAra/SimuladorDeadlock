@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+//#include <stdio.h>
 using namespace std;
 int arrmax[100][100];
 int alloc[100][100];
@@ -9,11 +10,11 @@ int n, r;
 void input()
 {
     int i, j;
-    cout << "Insira o nº de Processos:";
+    cout << "Insira o nº de Processos\t";
     cin >> n;
-    cout << "Insira o número de instâncias de recursos:";
+    cout << "Insira o número de instâncias de recursos\t";
     cin >> r;
-    cout << "Digite a Matriz Máxima:\n";
+    cout << "Digite a Matriz Máxima\n";
     for (i = 0; i < n; i++)
     {
         for (j = 0; j < r; j++)
@@ -118,20 +119,18 @@ void cal()
     }
     if (flag == 1)
     {
-        cout << "\n\nOs seguintes processos estão em Deadlock\n";
+        cout << "\n\nOsseguintes processos estão em Deadlock\n";
         for (i = 0; i < n; i++)
         {
             for (int j = 0; j < r; j++)
             {
-                if(dead[i] != 0){
-                    cout << "P" << dead[i] << " está aguardando " << arrmax[i][j] << "instâncias de R" << j << "\n";
-                }
+                cout << "P" << dead[i] << "aguardando" << need[i][j]"instancias\t";
             }
         }
     }
     else
     {
-        cout << "\nNão ocorreram deadlocks";
+        cout << "\nNo Deadlock Occur";
     }
 }
 int main()
