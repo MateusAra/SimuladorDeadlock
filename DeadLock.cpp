@@ -124,7 +124,7 @@ void cal()
             for (int j = 0; j < r; j++)
             {
                 if(dead[i] != 0){
-                    cout << "P" << dead[i] << " está aguardando " << arrmax[i][j] << "instâncias de R" << j << "\n";
+                    cout << "P" << dead[i] << " está aguardando " << alloc[i][j] + 1 << " instâncias de R" << avail[j] + 1 << "\n";
                 }
             }
         }
