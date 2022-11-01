@@ -110,29 +110,32 @@ int main()
     printf("\n");
     for(i=0;i<num_processo;i++){//quantidade maxima de tentativas
         printf("------Tentativa %d------\n\n",i+1);
-        int qtd_processos_executados=0;
+        int qtd_processos_executados = 0;
 
 
         for(j=0;j<num_processo;j++){//tentando executar todos os processo numa mesma tentativa
 
             if(ja_executados[j] == TRUE) continue;//se o processo atual ja foi executado nao precisa tentar executar ele
 
-            int qtd_de_recursos_pegos=0;
+            int k, qtd_de_recursos_pegos = 0;
 
-            int k;
-            for(k=0;k<num_recursos;k++){
-                if(matriz_requisitados[j][k] == 0 || matriz_requisitados[j][k] <= vetor_de_disponiveis[k]){
+            for(k = 0; k < num_recursos; k++)
+            {
+                if(matriz_requisitados[j][k] == 0 || matriz_requisitados[j][k] <= vetor_de_disponiveis[k])
+                {
                     //concigo pegar
                     qtd_de_recursos_pegos++;
                 }
-                else{
+                else
+                {
                     //nao concigo
                     break;//se nao conceguio pegar pelo menos um recursso entao nem tente mais verificar se ele consigir� pegar outros recurssos
                 }
             }
 
-            if(qtd_de_recursos_pegos == num_recursos){//se conceguio pegar todos os recursos que precesava defina esse processo como executado
-                for(k=0;k<num_recursos;k++){
+            if(qtd_de_recursos_pegos == num_recursos)
+            {//se conceguio pegar todos os recursos que precesava defina esse processo como executado
+                for( k = 0; k < num_recursos; k++){
                     vetor_de_disponiveis[k] = vetor_de_disponiveis[k] + matriz_alocados[j][k];//atualizando o vetor de disponiveis
                 }
                 printf("Processo %d EXECUTADO.\n",j+1);
@@ -153,10 +156,11 @@ int main()
             }
         }
         else{//verificando se entrou em deadlock ou bloqueio
-            int faltam_executar=0;
-            int k;
-            for(k=0;k<num_processo;k++){
-                if(ja_executados[k]==FALSE) faltam_executar++;
+            int faltam_executar = 0;
+            for(int k = 0; k < num_processo; k++)
+            {
+                if(ja_executados[k] == FALSE) 
+                    faltam_executar++;
             }
 
             if(faltam_executar==1){
