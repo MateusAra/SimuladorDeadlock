@@ -192,7 +192,7 @@ int main()
                         {
                             numRecursosFaltam = matrizRequisicao[k][line] - vetorDeDisponiveis[line];
                             if (numRecursosFaltam > 0)
-                                printf("Processo %d em esperando %d intancias de R%d\n", k + 1, numRecursosFaltam, line + 1);
+                                printf("Processo %d em deadlock, esperando %d intancias de R%d\n", k + 1, numRecursosFaltam, line + 1);
                         }
                         break;
                     }
@@ -209,7 +209,7 @@ int main()
                         {
                             numRecursosFaltam = matrizRequisicao[k][line] - vetorDeDisponiveis[line];
                             if (numRecursosFaltam > 0)
-                                printf("Processo %d em esperando %d intancias de R%d\n", k + 1, numRecursosFaltam, line + 1);
+                                printf("Processo %d em deadlock, esperando %d intancias de R%d\n", k + 1, numRecursosFaltam, line + 1);
                         }
                     }
                 }
