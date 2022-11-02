@@ -175,8 +175,7 @@ int main()
         else
         {
             int faltam_executar = 0;
-            int k;
-            int numRecursosFaltam;
+            int k, numRecursosFaltam;
             for (k = 0; k < numProcesso; k++)
             {
                 if (ja_executados[k] == FALSE)
